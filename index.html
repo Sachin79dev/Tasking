@@ -22,13 +22,44 @@
 
         <div class="addtaskbar">
             <h1>Task List 📌</h1>
-            <button id="add"><i
-                    class="fa-solid fa-plus pe-1"></i> Add Task</button>
+            <button class="add"><i class="fa-solid fa-plus pe-1"></i> Add Task</button>
         </div>
 
 
-        
+
+        <div class="task_parent"></div>
+
+
+
+        <div class="form">
+            <div class="close_box">
+                <div></div>
+                <i class="fa-solid fa-xmark close"></i>
+            </div>
+            <form action="">
+                <h1>Add Details</h1>
+                <input type="text" class="taskname" placeholder="Enter Your Task">
+                <input type="text" class="taskdesk" placeholder="Enter Description">
+                <select name="category" id="category">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Work">Work</option>
+                    <option value="Study">Study</option>
+                    <option value="Personal">Personal</option>
+                </select>
+
+                <div>
+                    <label for="deadline">Deadline:</label>
+                    <input type="date" class="deadline" id="deadline" name="deadline" pattern="\d{2}/\d{2}/\d{4}">
+                </div>
+
+
+                <button class="submit" type="submit">Submit</button>
+            </form>
+        </div>
+
     </main>
+
+
 
 
 
