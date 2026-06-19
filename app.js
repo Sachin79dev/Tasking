@@ -5,9 +5,28 @@ const form = document.querySelector("form")
 const field1 = document.querySelector(".taskname")
 const field2 = document.querySelector(".taskdesk")
 const field3 = document.querySelector("#category")
-const feild4 = document.querySelector(".deadline")
+const total = document.querySelector(".total")
+
+
+const toggleBtn = document.querySelector(".toggle_icon");
+const toggleEmoji = toggleBtn.querySelector("span");
+
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        toggleEmoji.textContent = "🌙";
+    } else {
+        toggleEmoji.textContent = "☀️";
+    }
+});
+
+
 
 const taskArr = []
+
+total.innerHTML = `<h4>Total Tasks: ${taskArr.length}</h4>`
 
 let editID = null;;
 let id = 0;
@@ -17,13 +36,8 @@ let card = () => {
     taskArr.forEach((elem, i) => {
         task_parent.innerHTML += `<div class="task_card">
                 <div class="task_header">
-                    <select name="status" id="status">
-                        <option>Todo</option>
-                        <option>In Progress</option>
-                        <option>Pending</option>
-                        <option>Completed</option>
-                    </select>
-
+                    
+                    <div class="work_cat">${elem.category}</div>
                     <i class="fa-solid fa-ellipsis"></i>
                 </div>
 
@@ -33,15 +47,9 @@ let card = () => {
                     <p>${elem.taskDesk}</p>
                 </div>
 
-
-                <div class="task_footer">
-                    <div class="work_cat">${elem.category}</div>
-                    <p>${elem.deadline}</p>
-                </div>
-
                 <div class="task_footer">
                     <button class="edit" data-index="${i}">Edit</button>
-                    <button>Delete</button>
+                    <button class="delete" data-delete="${i}">Delete</button>
                 </div>
             </div>`
     })
@@ -53,7 +61,9 @@ mainDiv.addEventListener('click', (e) => {
         formBox.style.display = "flex"
     }
     if (e.target.classList.contains("close")) {
-        formBox.style.display = "none"
+        formBox.style.display = "none";
+        form.reset();
+        editID = null;
     }
     if (e.target.classList.contains("submit")) {
         e.preventDefault()
@@ -61,14 +71,12 @@ mainDiv.addEventListener('click', (e) => {
         let taskName = field1.value
         let taskDesk = field2.value
         let category = field3.value
-        let deadline = feild4.value
 
         let obj = {
             id,
             taskName,
             taskDesk,
             category,
-            deadline
         }
 
         if (taskName.trim() === "" || taskDesk.trim() === "") {
@@ -82,8 +90,8 @@ mainDiv.addEventListener('click', (e) => {
         } else {
             taskArr.push(obj);
             id++
+            total.innerHTML = `<h4>Total Tasks: ${taskArr.length}</h4>`
         }
-
 
         card()
 
@@ -114,9 +122,18 @@ mainDiv.addEventListener('click', (e) => {
         field1.value = taskExist.taskName;
         field2.value = taskExist.taskDesk;
         field3.value = taskExist.category;
-        feild4.value = taskExist.deadline;
 
         editID = index;
 
+
     }
+
+
+    if (e.target.classList.contains("delete")) {
+        let index = e.target.dataset.delete
+        taskArr.splice(index, 1);
+        card()
+        total.innerHTML = `<h4>Total Tasks: ${taskArr.length}</h4>`
+    }
+
 })
