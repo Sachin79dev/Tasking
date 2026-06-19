@@ -15,14 +15,25 @@
     <main>
         <div class="nav">
             <img src="img/logo.png" alt="">
-            <span class="toggle-icon-sun">☀️</span>
+            <div class="navbar">
+                <p class="toggle_icon"><span>☀️</span></p>
+
+                <button class="add"><i class="fa-solid fa-plus pe-1"></i> Add Task</button>
+            </div>
         </div>
 
 
 
         <div class="addtaskbar">
             <h1>Task List 📌</h1>
-            <button class="add"><i class="fa-solid fa-plus pe-1"></i> Add Task</button>
+            <div class="total">
+            </div>
+        </div>
+
+
+        <div class="total_count">
+            <div></div>
+
         </div>
 
 
@@ -46,11 +57,6 @@
                     <option value="Study">Study</option>
                     <option value="Personal">Personal</option>
                 </select>
-
-                <div>
-                    <label for="deadline">Deadline:</label>
-                    <input type="date" class="deadline" id="deadline" name="deadline" pattern="\d{2}/\d{2}/\d{4}">
-                </div>
 
 
                 <button class="submit" type="submit">Submit</button>
