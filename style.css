@@ -43,6 +43,17 @@ body {
     gap: 20px;
 }
 
+.total_count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 30px;
+    padding-top: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 
 .pe-1 {
     padding-right: 10px;
@@ -55,6 +66,20 @@ body {
     border-radius: 8px;
     color: #fff;
     background: #189FFF;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar p {
+    margin: 0;
+}
+
+.toggle_icon {
     cursor: pointer;
 }
 
@@ -210,4 +235,74 @@ h4 {
     border-radius: 30px;
     font-size: 14px;
     color: #ff0000;
+}
+
+
+.edit {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ffd056;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.delete {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ff5656;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* Dark Theme */
+
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark .nav {
+    background-color: #1e1e1e;
+}
+
+body.dark .addtaskbar {
+    border-bottom: 1px solid #444;
+}
+
+body.dark .task_card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 3px 8px;
+}
+
+body.dark .task_main p {
+    color: #c0c0c0;
+}
+
+body.dark form {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark input,
+body.dark select {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+body.dark .task_footer {
+    border-top: 1px solid #444;
+}
+
+body.dark .toggle_icon {
+    color: #fff;
 }
